@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -13,7 +13,12 @@
     <div class="stackedit__toc">
       
 <ul>
-<li><a href="#bash-handbook">bash-handbook</a></li>
+<li><a href="#arnab-bag">Arnab Bag</a>
+<ul>
+<li></li>
+<li><a href="#usefule-linux-commands">Usefule Linux Commands</a></li>
+</ul>
+</li>
 <li><a href="#node-packaged-manuscript">Node Packaged Manuscript</a></li>
 <li><a href="#translations">Translations</a></li>
 <li><a href="#table-of-contents">Table of Contents</a></li>
@@ -88,8 +93,33 @@
   </div>
   <div class="stackedit__right">
     <div class="stackedit__html">
-      <h1 id="bash-handbook">bash-handbook</h1>
-<p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg?style=flat-square" alt="CC 4.0"></a> <a href="https://npmjs.org/package/bash-handbook"><img src="https://img.shields.io/npm/v/bash-handbook.svg?style=flat-square" alt="NPM version"></a> <a href="https://gitter.im/denysdovhan/bash-handbook"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square" alt="Gitter"></a></p>
+      <h1 id="arnab-bag">Arnab Bag</h1>
+<p><strong>Ph.D. Research Scholar Secured Embedded Architecture Laboratory</strong><br>
+<strong>Department of Computer Science and Engineering</strong><br>
+<strong>Indian Institute of Technology Kharagpur</strong></p>
+<h3 id="section"></h3>
+<p><a href="mailto:amiarnabbolchi"><img src="http://files.softicons.com/download/application-icons/free-flat-icons-by-grafikartes/png/32x32/mail.png" alt="CC 4.0"></a></p>
+<ul>
+<li>Project 1</li>
+<li>Project 2</li>
+<li>Project 3</li>
+</ul>
+<h2 id="usefule-linux-commands">Usefule Linux Commands</h2>
+<ul>
+<li>Screen Record with audio</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash">ffmpeg -video_size 1920x1080 -framerate 24 -f x11grab -i :0.0+0,0 -f alsa -ac 2 -i pulse zacodec aac -strict experimental output_screen.mp4
+</code></pre>
+<ul>
+<li>Camera Record</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash">ffmpeg -f v4l2 -framerate 90 -video_size 1280x720 -input_format mjpeg -i /dev/video1 output_camera.mkv
+</code></pre>
+<ul>
+<li>Screen and Camera Record</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash">ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 -f x11grab -framerate 100 -video_size 1600x900 -i :0.0 -filter_complex <span class="token string">"[0:v]pad=iw:900:0:(oh-ih)/2[left];[left][1:v]hstack"</span> output_scrcam.mp4
+</code></pre>
 <p>This document was written for those who want to learn Bash without diving in too deeply.</p>
 <blockquote>
 <p><strong>Tip</strong>: Try <a href="https://git.io/learnyoubash"><strong>learnyoubash</strong></a> — an interactive workshopper based on this handbook!</p>
