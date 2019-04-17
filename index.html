@@ -1,0 +1,1011 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#bash-handbook">bash-handbook</a></li>
+<li><a href="#node-packaged-manuscript">Node Packaged Manuscript</a></li>
+<li><a href="#translations">Translations</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#shells-and-modes">Shells and modes</a>
+<ul>
+<li><a href="#interactive-mode">Interactive mode</a></li>
+<li><a href="#non-interactive-mode">Non-interactive mode</a></li>
+<li><a href="#exit-codes">Exit codes</a></li>
+</ul>
+</li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#variables">Variables</a>
+<ul>
+<li><a href="#local-variables">Local variables</a></li>
+<li><a href="#environment-variables">Environment variables</a></li>
+<li><a href="#positional-parameters">Positional parameters</a></li>
+</ul>
+</li>
+<li><a href="#shell-expansions">Shell expansions</a>
+<ul>
+<li><a href="#brace-expansion">Brace expansion</a></li>
+<li><a href="#command-substitution">Command substitution</a></li>
+<li><a href="#arithmetic-expansion">Arithmetic expansion</a></li>
+<li><a href="#double-and-single-quotes">Double and single quotes</a></li>
+</ul>
+</li>
+<li><a href="#arrays">Arrays</a>
+<ul>
+<li><a href="#array-declaration">Array declaration</a></li>
+<li><a href="#array-expansion">Array expansion</a></li>
+<li><a href="#array-slice">Array slice</a></li>
+<li><a href="#adding-elements-into-an-array">Adding elements into an array</a></li>
+<li><a href="#deleting-elements-from-an-array">Deleting elements from an array</a></li>
+</ul>
+</li>
+<li><a href="#streams-pipes-and-lists">Streams, pipes and lists</a>
+<ul>
+<li><a href="#streams">Streams</a></li>
+<li><a href="#pipes">Pipes</a></li>
+<li><a href="#lists-of-commands">Lists of commands</a></li>
+</ul>
+</li>
+<li><a href="#conditional-statements">Conditional statements</a>
+<ul>
+<li><a href="#primary-and-combining-expressions">Primary and combining expressions</a></li>
+<li><a href="#using-an-if-statement">Using an if statement</a></li>
+<li><a href="#using-a-case-statement">Using a case statement</a></li>
+</ul>
+</li>
+<li><a href="#loops">Loops</a>
+<ul>
+<li><a href="#for-loop">for loop</a></li>
+<li><a href="#while-loop">while loop</a></li>
+<li><a href="#until-loop">until loop</a></li>
+<li><a href="#select-loop">select loop</a></li>
+<li><a href="#loop-control">Loop control</a></li>
+</ul>
+</li>
+<li><a href="#functions">Functions</a>
+<ul>
+<li><a href="#debugging">Debugging</a></li>
+</ul>
+</li>
+<li><a href="#afterword">Afterword</a></li>
+<li><a href="#want-to-learn-more">Want to learn more?</a></li>
+<li><a href="#other-resources">Other resources</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="bash-handbook">bash-handbook</h1>
+<p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg?style=flat-square" alt="CC 4.0"></a> <a href="https://npmjs.org/package/bash-handbook"><img src="https://img.shields.io/npm/v/bash-handbook.svg?style=flat-square" alt="NPM version"></a> <a href="https://gitter.im/denysdovhan/bash-handbook"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square" alt="Gitter"></a></p>
+<p>This document was written for those who want to learn Bash without diving in too deeply.</p>
+<blockquote>
+<p><strong>Tip</strong>: Try <a href="https://git.io/learnyoubash"><strong>learnyoubash</strong></a> — an interactive workshopper based on this handbook!</p>
+</blockquote>
+<h1 id="node-packaged-manuscript">Node Packaged Manuscript</h1>
+<p>You can install this handbook using <code>npm</code>. Just run:</p>
+<pre><code>$ npm install -g bash-handbook
+</code></pre>
+<p>You should be able to run <code>bash-handbook</code> at the command line now. This will open the manual in your selected <code>$PAGER</code>. Otherwise, you may continue reading on here.</p>
+<p>The source is available here: <a href="https://github.com/denysdovhan/bash-handbook">https://github.com/denysdovhan/bash-handbook</a></p>
+<h1 id="translations">Translations</h1>
+<p>Currently, there are these translations of <strong>bash-handbook</strong>:</p>
+<ul>
+<li><a href="/translations/pt-BR/README.md">Português (Brasil)</a></li>
+<li><a href="/translations/zh-CN/README.md">简体中文 (中国)</a></li>
+<li><a href="/translations/zh-TW/README.md">繁體中文（台灣）</a></li>
+<li><a href="/translations/ko-KR/README.md">한국어 (한국)</a></li>
+</ul>
+<p><a href="https://github.com/denysdovhan/bash-handbook/issues/new?title=Translation%20Request:%20%5BPlease%20enter%20language%20here%5D&amp;body=I%20am%20able%20to%20translate%20this%20language%20%5Byes/no%5D"><strong>Request another translation</strong></a></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#shells-and-modes">Shells and modes</a>
+<ul>
+<li><a href="#interactive-mode">Interactive mode</a></li>
+<li><a href="#non-interactive-mode">Non-interactive mode</a></li>
+<li><a href="#exit-codes">Exit codes</a></li>
+</ul>
+</li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#variables">Variables</a>
+<ul>
+<li><a href="#local-variables">Local variables</a></li>
+<li><a href="#environment-variables">Environment variables</a></li>
+<li><a href="#positional-parameters">Positional parameters</a></li>
+</ul>
+</li>
+<li><a href="#shell-expansions">Shell expansions</a>
+<ul>
+<li><a href="#brace-expansion">Brace expansion</a></li>
+<li><a href="#command-substitution">Command substitution</a></li>
+<li><a href="#arithmetic-expansion">Arithmetic expansion</a></li>
+<li><a href="#double-and-single-quotes">Double and single quotes</a></li>
+</ul>
+</li>
+<li><a href="#arrays">Arrays</a>
+<ul>
+<li><a href="#array-declaration">Array declaration</a></li>
+<li><a href="#array-expansion">Array expansion</a></li>
+<li><a href="#array-slice">Array slice</a></li>
+<li><a href="#adding-elements-into-an-array">Adding elements into an array</a></li>
+<li><a href="#deleting-elements-from-an-array">Deleting elements from an array</a></li>
+</ul>
+</li>
+<li><a href="#streams-pipes-and-lists">Streams, pipes and lists</a>
+<ul>
+<li><a href="#streams">Streams</a></li>
+<li><a href="#pipes">Pipes</a></li>
+<li><a href="#lists-of-commands">Lists of commands</a></li>
+</ul>
+</li>
+<li><a href="#conditional-statements">Conditional statements</a>
+<ul>
+<li><a href="#primary-and-combining-expressions">Primary and combining expressions</a></li>
+<li><a href="#using-an-if-statement">Using an <code>if</code> statement</a></li>
+<li><a href="#using-a-case-statement">Using a <code>case</code> statement</a></li>
+</ul>
+</li>
+<li><a href="#loops">Loops</a>
+<ul>
+<li><a href="#for-loop"><code>for</code> loop</a></li>
+<li><a href="#while-loop"><code>while</code> loop</a></li>
+<li><a href="#until-loop"><code>until</code> loop</a></li>
+<li><a href="#select-loop"><code>select</code> loop</a></li>
+<li><a href="#loop-control">Loop control</a></li>
+</ul>
+</li>
+<li><a href="#functions">Functions</a>
+<ul>
+<li><a href="#debugging">Debugging</a></li>
+</ul>
+</li>
+<li><a href="#afterword">Afterword</a></li>
+<li><a href="#want-to-learn-more">Want to learn more?</a></li>
+<li><a href="#other-resources">Other resources</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<h1 id="introduction">Introduction</h1>
+<p>If you are a developer, then you know the value of time. Optimizing your work process is one of the most important aspects of the job.</p>
+<p>In that path towards efficiency and productivity, we are often posed with actions that must be repeated over and over again, like:</p>
+<ul>
+<li>taking a screenshot and uploading it to a server</li>
+<li>processing text that may come in many shapes and forms</li>
+<li>converting files between different formats</li>
+<li>parsing a program’s output</li>
+</ul>
+<p>Enter <strong>Bash</strong>, our savior.</p>
+<p>Bash is a Unix shell written by <a href="https://en.wikipedia.org/wiki/Brian_Fox_(computer_programmer)">Brian Fox</a> for the GNU Project as a free software replacement for the <a href="https://en.wikipedia.org/wiki/Bourne_shell">Bourne shell</a>. It was released in 1989 and has been distributed as the Linux and macOS default shell for a long time.</p>
+<!-- link this format, because some MD processors handle '()' in URLs poorly -->
+<p>So why do we need to learn something that was written more than 30 years ago? The answer is simple: this <em>something</em> is today one of the most powerful and portable tools for writing efficient scripts for all Unix-based systems. And that’s why you should learn bash. Period.</p>
+<p>In this handbook, I’m going to describe the most important concepts in bash with examples. I hope this compendium will be helpful to you.</p>
+<h1 id="shells-and-modes">Shells and modes</h1>
+<p>The user bash shell can work in two modes - interactive and non-interactive.</p>
+<h2 id="interactive-mode">Interactive mode</h2>
+<p>If you are working on Ubuntu, you have seven virtual terminals available to you.<br>
+The desktop environment takes place in the seventh virtual terminal, so you can return to a friendly GUI<br>
+using the <code>Ctrl-Alt-F7</code> keybinding.</p>
+<p>You can open the shell using the <code>Ctrl-Alt-F1</code> keybinding. After that, the familiar GUI will disappear and one of the virtual terminals will be shown.</p>
+<p>If you see something like this, then you are working in interactive mode:</p>
+<pre><code>user@host:~$
+</code></pre>
+<p>Here you can enter a variety of Unix commands, such as <code>ls</code>, <code>grep</code>, <code>cd</code>, <code>mkdir</code>, <code>rm</code> and see the result of their execution.</p>
+<p>We call this shell interactive because it interacts directly with the user.</p>
+<p>Using a virtual terminal is not really convenient. For example, if you want to edit a document and execute another command at the same time, you are better off using virtual terminal emulators like:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/GNOME_Terminal">GNOME Terminal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Terminator_(terminal_emulator)">Terminator</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ITerm2">iTerm2</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ConEmu">ConEmu</a></li>
+</ul>
+<h2 id="non-interactive-mode">Non-interactive mode</h2>
+<p>In non-interactive mode, the shell reads commands from a file or a pipe and executes them. When the interpreter reaches the end of the file, the shell process terminates the session and returns to the parent process.</p>
+<p>Use the following commands for running the shell in non-interactive mode:</p>
+<pre><code>sh /path/to/script.sh
+bash /path/to/script.sh
+</code></pre>
+<p>In the example above, <code>script.sh</code> is just a regular text file that consists of commands the shell interpreter can evaluate and <code>sh</code> or <code>bash</code> is the shell’s interpreter program. You can create <code>script.sh</code> using your preferred text editor (e.g. vim, nano, Sublime Text, Atom, etc).</p>
+<p>You can also simplify invoking the script by making it an executable file using the <code>chmod</code> command:</p>
+<pre><code>chmod +x /path/to/script.sh
+</code></pre>
+<p>Additionally, the first line in the script must indicate which program it should use to run the file, like so:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token keyword">echo</span> <span class="token string">"Hello, world!"</span>
+</code></pre>
+<p>Or if you prefer to use <code>sh</code> instead of <code>bash</code>, change <code>#!/bin/bash</code> to <code>#!/bin/sh</code>. This <code>#!</code> character sequence is known as the <a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>. Now you can run the script like this:</p>
+<pre><code>/path/to/script.sh
+</code></pre>
+<p>A handy trick we used above is using <code>echo</code> to print text to the terminal screen.</p>
+<p>Another way to use the shebang line is as follows:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment">#!/usr/bin/env bash</span>
+<span class="token keyword">echo</span> <span class="token string">"Hello, world!"</span>
+</code></pre>
+<p>The advantage of this shebang line is it will search for the program (in this case <code>bash</code>) based on the <code>PATH</code> environment variable. This is often preferred over the first method shown above, as the location of a program on a filesystem cannot always be assumed. This is also useful if the <code>PATH</code> variable on a system has been configured to point to an alternate version of the program. For instance, one might install a newer version of <code>bash</code> while preserving the original version and insert the location of the newer version into the <code>PATH</code> variable. The use of <code>#!/bin/bash</code> would result in using the original <code>bash</code>, while <code>#!/usr/bin/env bash</code> would make use of the newer version.</p>
+<h2 id="exit-codes">Exit codes</h2>
+<p>Every command returns an <strong>exit code</strong> (<strong>return status</strong> or <strong>exit status</strong>). A successful command always returns <code>0</code> (zero-code), and a command that has failed returns a non-zero value (error code). Failure codes must be positive integers between 1 and 255.</p>
+<p>Another handy command we can use when writing a script is <code>exit</code>. This command is used to terminate the current execution and deliver an exit code to the shell. Running an <code>exit</code> code without any arguments, will terminate the running script and return the exit code of the last command executed before <code>exit</code>.</p>
+<p>When a program terminates, the shell assigns its <strong>exit code</strong> to the <code>$?</code> environment variable. The <code>$?</code> variable is how we usually test whether a script has succeeded or not in its execution.</p>
+<p>In the same way we can use <code>exit</code> to terminate a script, we can use the <code>return</code> command to exit a function and return an <strong>exit code</strong> to the caller. You can use <code>exit</code> inside a function too and this will exit the function <em>and</em> terminate the program.</p>
+<h1 id="comments">Comments</h1>
+<p>Scripts may contain <em>comments</em>. Comments are special statements ignored by the <code>shell</code> interpreter. They begin with a <code>#</code> symbol and continue on to the end of the line.</p>
+<p>For example:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># This script will print your username.</span>
+<span class="token function">whoami</span>
+</code></pre>
+<blockquote>
+<p><strong>Tip</strong>: Use comments to explain what your script does and <em>why</em>.</p>
+</blockquote>
+<h1 id="variables">Variables</h1>
+<p>Like in most programming languages, you can also create variables in bash.</p>
+<p>Bash knows no data types. Variables can contain only numbers or a string of one or more characters. There are three kinds of variables you can create: local variables, environment variables and variables as <em>positional arguments</em>.</p>
+<h2 id="local-variables">Local variables</h2>
+<p><strong>Local variables</strong> are variables that exist only within a single script. They are inaccessible to other programs and scripts.</p>
+<p>A local variable can be declared using <code>=</code> sign (as a rule, there <strong>should not</strong> be any spaces between a variable’s name, <code>=</code> and its value) and its value can be retrieved using the <code>$</code> sign. For example:</p>
+<pre class=" language-bash"><code class="prism  language-bash">username<span class="token operator">=</span><span class="token string">"denysdovhan"</span>  <span class="token comment"># declare variable</span>
+<span class="token keyword">echo</span> <span class="token variable">$username</span>          <span class="token comment"># display value</span>
+unset username          <span class="token comment"># delete variable</span>
+</code></pre>
+<p>We can also declare a variable local to a single function using the <code>local</code> keyword. Doing so causes the variable to disappear when the function exits.</p>
+<pre class=" language-bash"><code class="prism  language-bash">local local_var<span class="token operator">=</span><span class="token string">"I'm a local value"</span>
+</code></pre>
+<h2 id="environment-variables">Environment variables</h2>
+<p><strong>Environment variables</strong> are variables accessible to any program or script running in current shell session. They are created just like local variables, but using the keyword <code>export</code> instead.</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">export</span> GLOBAL_VAR<span class="token operator">=</span><span class="token string">"I'm a global variable"</span>
+</code></pre>
+<p>There are <em>a lot</em> of global variables in bash. You will meet these variables fairly often, so here is a quick lookup table with the most practical ones:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Variable</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>$HOME</code></td>
+<td align="left">The current user’s home directory.</td>
+</tr>
+<tr>
+<td align="left"><code>$PATH</code></td>
+<td align="left">A colon-separated list of directories in which the shell looks for commands.</td>
+</tr>
+<tr>
+<td align="left"><code>$PWD</code></td>
+<td align="left">The current working directory.</td>
+</tr>
+<tr>
+<td align="left"><code>$RANDOM</code></td>
+<td align="left">Random integer between 0 and 32767.</td>
+</tr>
+<tr>
+<td align="left"><code>$UID</code></td>
+<td align="left">The numeric, real user ID of the current user.</td>
+</tr>
+<tr>
+<td align="left"><code>$PS1</code></td>
+<td align="left">The primary prompt string.</td>
+</tr>
+<tr>
+<td align="left"><code>$PS2</code></td>
+<td align="left">The secondary prompt string.</td>
+</tr>
+</tbody>
+</table><p>Follow <a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_02.html#sect_03_02_04">this link</a> to see an extended list of environment variables in Bash.</p>
+<h2 id="positional-parameters">Positional parameters</h2>
+<p><strong>Positional parameters</strong> are variables allocated when a function is evaluated and are given positionally. The following table lists positional parameter variables and other special variables and their meanings when you are inside a function.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>$0</code></td>
+<td align="left">Script’s name.</td>
+</tr>
+<tr>
+<td align="left"><code>$1 … $9</code></td>
+<td align="left">The parameter list elements from 1 to 9.</td>
+</tr>
+<tr>
+<td align="left"><code>${10} … ${N}</code></td>
+<td align="left">The parameter list elements from 10 to N.</td>
+</tr>
+<tr>
+<td align="left"><code>$*</code> or <code>$@</code></td>
+<td align="left">All positional parameters except <code>$0</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>$#</code></td>
+<td align="left">The number of parameters, not counting <code>$0</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>$FUNCNAME</code></td>
+<td align="left">The function name (has a value only inside a function).</td>
+</tr>
+</tbody>
+</table><p>In the example below, the positional parameters will be <code>$0='./script.sh'</code>,  <code>$1='foo'</code> and <code>$2='bar'</code>:</p>
+<pre><code>./script.sh foo bar
+</code></pre>
+<p>Variables may also have <em>default</em> values. We can define as such using the following syntax:</p>
+<pre class=" language-bash"><code class="prism  language-bash"> <span class="token comment"># if variables are empty, assign them default values</span>
+<span class="token keyword">:</span> $<span class="token punctuation">{</span>VAR:<span class="token operator">=</span><span class="token string">'default'</span><span class="token punctuation">}</span>
+<span class="token keyword">:</span> $<span class="token punctuation">{</span><span class="token variable">$1</span>:<span class="token operator">=</span><span class="token string">'first'</span><span class="token punctuation">}</span>
+<span class="token comment"># or</span>
+FOO<span class="token operator">=</span>$<span class="token punctuation">{</span>FOO:-<span class="token string">'default'</span><span class="token punctuation">}</span>
+</code></pre>
+<h1 id="shell-expansions">Shell expansions</h1>
+<p><em>Expansions</em> are performed on the command line after it has been split into <em>tokens</em>. In other words, these expansions are a mechanism to calculate arithmetical operations, to save results of commands’ executions and so on.</p>
+<p>If you are interested, you can read <a href="https://www.gnu.org/software/bash/manual/bash.html#Shell-Expansions">more about shell expansions</a>.</p>
+<h2 id="brace-expansion">Brace expansion</h2>
+<p>Brace expansion allows us to generate arbitrary strings. It’s similar to <em>filename expansion</em>. For example:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">echo</span> beg<span class="token punctuation">{</span>i,a,u<span class="token punctuation">}</span>n <span class="token comment"># begin began begun</span>
+</code></pre>
+<p>Also brace expansions may be used for creating ranges, which are iterated over in loops.</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">echo</span> <span class="token punctuation">{</span>0<span class="token punctuation">..</span>5<span class="token punctuation">}</span> <span class="token comment"># 0 1 2 3 4 5</span>
+<span class="token keyword">echo</span> <span class="token punctuation">{</span>00<span class="token punctuation">..</span>8<span class="token punctuation">..</span>2<span class="token punctuation">}</span> <span class="token comment"># 00 02 04 06 08</span>
+</code></pre>
+<h2 id="command-substitution">Command substitution</h2>
+<p>Command substitution allow us to evaluate a command and substitute its value into another command or variable assignment. Command substitution is performed when a command is enclosed by <code>``</code> or <code>$()</code>.  For example, we can use it as follows:</p>
+<pre class=" language-bash"><code class="prism  language-bash">now<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%T<span class="token variable">`</span></span>
+<span class="token comment"># or</span>
+now<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%T<span class="token variable">)</span></span>
+
+<span class="token keyword">echo</span> <span class="token variable">$now</span> <span class="token comment"># 19:08:26</span>
+</code></pre>
+<h2 id="arithmetic-expansion">Arithmetic expansion</h2>
+<p>In bash we are free to do any arithmetical operations. But the expression must enclosed by <code>$(( ))</code> The format for arithmetic expansions is:</p>
+<pre class=" language-bash"><code class="prism  language-bash">result<span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span> <span class="token punctuation">((</span><span class="token number">10</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token variable">))</span></span>
+<span class="token keyword">echo</span> <span class="token variable">$result</span> <span class="token comment"># 9</span>
+</code></pre>
+<p>Within arithmetic expansions, variables should generally be used without a <code>$</code> prefix:</p>
+<pre class=" language-bash"><code class="prism  language-bash">x<span class="token operator">=</span>4
+y<span class="token operator">=</span>7
+<span class="token keyword">echo</span> <span class="token variable"><span class="token variable">$((</span> x <span class="token operator">+</span> y <span class="token variable">))</span></span>     <span class="token comment"># 11</span>
+<span class="token keyword">echo</span> <span class="token variable"><span class="token variable">$((</span> <span class="token operator">++</span>x <span class="token operator">+</span> y<span class="token operator">++</span> <span class="token variable">))</span></span> <span class="token comment"># 12</span>
+<span class="token keyword">echo</span> <span class="token variable"><span class="token variable">$((</span> x <span class="token operator">+</span> y <span class="token variable">))</span></span>     <span class="token comment"># 13</span>
+</code></pre>
+<h2 id="double-and-single-quotes">Double and single quotes</h2>
+<p>There is an important difference between double and single quotes. Inside double quotes variables or command substitutions are expanded. Inside single quotes they are not. For example:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">echo</span> <span class="token string">"Your home: <span class="token variable">$HOME</span>"</span> <span class="token comment"># Your home: /Users/&lt;username&gt;</span>
+<span class="token keyword">echo</span> <span class="token string">'Your home: <span class="token variable">$HOME</span>'</span> <span class="token comment"># Your home: $HOME</span>
+</code></pre>
+<p>Take care to expand local variables and environment variables within quotes if they could contain whitespace. As an innocuous example, consider using <code>echo</code> to print some user input:</p>
+<pre class=" language-bash"><code class="prism  language-bash">INPUT<span class="token operator">=</span><span class="token string">"A string  with   strange    whitespace."</span>
+<span class="token keyword">echo</span> <span class="token variable">$INPUT</span>   <span class="token comment"># A string with strange whitespace.</span>
+<span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$INPUT</span>"</span> <span class="token comment"># A string  with   strange    whitespace.</span>
+</code></pre>
+<p>The first <code>echo</code> is invoked with 5 separate arguments — $INPUT is split into separate words, <code>echo</code> prints a single space character between each. In the second case, <code>echo</code> is invoked with a single argument (the entire $INPUT value, including whitespace).</p>
+<p>Now consider a more serious example:</p>
+<pre class=" language-bash"><code class="prism  language-bash">FILE<span class="token operator">=</span><span class="token string">"Favorite Things.txt"</span>
+<span class="token function">cat</span> <span class="token variable">$FILE</span>   <span class="token comment"># attempts to print 2 files: `Favorite` and `Things.txt`</span>
+<span class="token function">cat</span> <span class="token string">"<span class="token variable">$FILE</span>"</span> <span class="token comment"># prints 1 file: `Favorite Things.txt`</span>
+</code></pre>
+<p>While the issue in this example could be resolved by renaming FILE to <code>Favorite-Things.txt</code>, consider input coming from an environment variable, a positional parameter, or the output of another command (<code>find</code>, <code>cat</code>, etc). If the input <em>might</em> contain whitespace, take care to wrap the expansion in quotes.</p>
+<h1 id="arrays">Arrays</h1>
+<p>Like in other programming languages, an array in bash is a variable that allows you to refer to multiple values. In bash, arrays are also zero-based, that is, the first element in an array has index 0.</p>
+<p>When dealing with arrays, we should be aware of the special environment variable <code>IFS</code>. <strong>IFS</strong>, or <strong>Input Field Separator</strong>, is the character that separates elements in an array. The default value is an empty space <code>IFS=' '</code>.</p>
+<h2 id="array-declaration">Array declaration</h2>
+<p>In bash you create an array by simply assigning a value to an index in the array variable:</p>
+<pre class=" language-bash"><code class="prism  language-bash">fruits<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span>Apple
+fruits<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span>Pear
+fruits<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token operator">=</span>Plum
+</code></pre>
+<p>Array variables can also be created using compound assignments such as:</p>
+<pre class=" language-bash"><code class="prism  language-bash">fruits<span class="token operator">=</span><span class="token punctuation">(</span>Apple Pear Plum<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="array-expansion">Array expansion</h2>
+<p>Individual array elements are expanded similar to other variables:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">echo</span> <span class="token variable">${fruits[1]}</span> <span class="token comment"># Pear</span>
+</code></pre>
+<p>The entire array can be expanded by using <code>*</code> or <code>@</code> in place of the numeric index:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">echo</span> <span class="token variable">${fruits[*]}</span> <span class="token comment"># Apple Pear Plum</span>
+<span class="token keyword">echo</span> <span class="token variable">${fruits[@]}</span> <span class="token comment"># Apple Pear Plum</span>
+</code></pre>
+<p>There is an important (and subtle) difference between the two lines above: consider an array element containing whitespace:</p>
+<pre class=" language-bash"><code class="prism  language-bash">fruits<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token operator">=</span>Apple
+fruits<span class="token punctuation">[</span>1<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"Desert fig"</span>
+fruits<span class="token punctuation">[</span>2<span class="token punctuation">]</span><span class="token operator">=</span>Plum
+</code></pre>
+<p>We want to print each element of the array on a separate line, so we try to use the <code>printf</code> builtin:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">printf</span> <span class="token string">"+ %s\n"</span> <span class="token variable">${fruits[*]}</span>
+<span class="token comment"># + Apple</span>
+<span class="token comment"># + Desert</span>
+<span class="token comment"># + fig</span>
+<span class="token comment"># + Plum</span>
+</code></pre>
+<p>Why were <code>Desert</code> and <code>fig</code> printed on separate lines? Let’s try to use quoting:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">printf</span> <span class="token string">"+ %s\n"</span> <span class="token string">"<span class="token variable">${fruits[*]}</span>"</span>
+<span class="token comment"># + Apple Desert fig Plum</span>
+</code></pre>
+<p>Now everything is on one line — that’s not what we wanted! Here’s where <code>${fruits[@]}</code> comes into play:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">printf</span> <span class="token string">"+ %s\n"</span> <span class="token string">"<span class="token variable">${fruits[@]}</span>"</span>
+<span class="token comment"># + Apple</span>
+<span class="token comment"># + Desert fig</span>
+<span class="token comment"># + Plum</span>
+</code></pre>
+<p>Within double quotes, <code>${fruits[@]}</code> expands to a separate argument for each element in the array; whitespace in the array elements is preserved.</p>
+<h2 id="array-slice">Array slice</h2>
+<p>Besides, we can extract a slice of array using the <em>slice</em> operators:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">echo</span> <span class="token variable">${fruits[@]:0:2}</span> <span class="token comment"># Apple Desert fig</span>
+</code></pre>
+<p>In the example above, <code>${fruits[@]}</code> expands to the entire contents of the array, and <code>:0:2</code> extracts the slice of length 2, that starts at index 0.</p>
+<h2 id="adding-elements-into-an-array">Adding elements into an array</h2>
+<p>Adding elements into an array is quite simple too. Compound assignments are specially useful in this case. We can use them like this:</p>
+<pre class=" language-bash"><code class="prism  language-bash">fruits<span class="token operator">=</span><span class="token punctuation">(</span>Orange <span class="token string">"<span class="token variable">${fruits[@]}</span>"</span> Banana Cherry<span class="token punctuation">)</span>
+<span class="token keyword">echo</span> <span class="token variable">${fruits[@]}</span> <span class="token comment"># Orange Apple Desert fig Plum Banana Cherry</span>
+</code></pre>
+<p>The example above, <code>${fruits[@]}</code> expands to the entire contents of the array and substitutes it into the compound assignment, then assigns the new value into the <code>fruits</code> array mutating its original value.</p>
+<h2 id="deleting-elements-from-an-array">Deleting elements from an array</h2>
+<p>To delete an element from an array, use the <code>unset</code> command:</p>
+<pre class=" language-bash"><code class="prism  language-bash">unset fruits<span class="token punctuation">[</span>0<span class="token punctuation">]</span>
+<span class="token keyword">echo</span> <span class="token variable">${fruits[@]}</span> <span class="token comment"># Apple Desert fig Plum Banana Cherry</span>
+</code></pre>
+<h1 id="streams-pipes-and-lists">Streams, pipes and lists</h1>
+<p>Bash has powerful tools for working with other programs and their outputs. Using streams we can send the output of a program into another program or file and thereby write logs or whatever we want.</p>
+<p>Pipes give us opportunity to create conveyors and control the execution of commands.</p>
+<p>It is paramount we understand how to use this powerful and sophisticated tool.</p>
+<h2 id="streams">Streams</h2>
+<p>Bash receives input and sends output as sequences or <strong>streams</strong> of characters. These streams may be redirected into files or one into another.</p>
+<p>There are three descriptors:</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Code</th>
+<th align="center">Descriptor</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>0</code></td>
+<td align="center"><code>stdin</code></td>
+<td align="left">The standard input.</td>
+</tr>
+<tr>
+<td align="center"><code>1</code></td>
+<td align="center"><code>stdout</code></td>
+<td align="left">The standard output.</td>
+</tr>
+<tr>
+<td align="center"><code>2</code></td>
+<td align="center"><code>stderr</code></td>
+<td align="left">The errors output.</td>
+</tr>
+</tbody>
+</table><p>Redirection makes it possible to control where the output of a command goes to, and where the input of a command comes from. For redirecting streams these operators are used:</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Operator</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>&gt;</code></td>
+<td align="left">Redirecting output</td>
+</tr>
+<tr>
+<td align="center"><code>&amp;&gt;</code></td>
+<td align="left">Redirecting output and error output</td>
+</tr>
+<tr>
+<td align="center"><code>&amp;&gt;&gt;</code></td>
+<td align="left">Appending redirected output and error output</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;</code></td>
+<td align="left">Redirecting input</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;&lt;</code></td>
+<td align="left"><a href="http://tldp.org/LDP/abs/html/here-docs.html">Here documents</a> syntax</td>
+</tr>
+<tr>
+<td align="center"><code>&lt;&lt;&lt;</code></td>
+<td align="left"><a href="http://www.tldp.org/LDP/abs/html/x17837.html">Here strings</a></td>
+</tr>
+</tbody>
+</table><p>Here are few examples of using redirections:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment"># output of ls will be written to list.txt</span>
+<span class="token function">ls</span> -l <span class="token operator">&gt;</span> list.txt
+
+<span class="token comment"># append output to list.txt</span>
+<span class="token function">ls</span> -a <span class="token operator">&gt;&gt;</span> list.txt
+
+<span class="token comment"># all errors will be written to errors.txt</span>
+<span class="token function">grep</span> da * 2<span class="token operator">&gt;</span> errors.txt
+
+<span class="token comment"># read from errors.txt</span>
+<span class="token function">less</span> <span class="token operator">&lt;</span> errors.txt
+</code></pre>
+<h2 id="pipes">Pipes</h2>
+<p>We could redirect standard streams not only in files, but also to other programs. <strong>Pipes</strong> let us use the output of a program as the input of another.</p>
+<p>In the example below, <code>command1</code> sends its output to <code>command2</code>, which then passes it on to the input of <code>command3</code>:</p>
+<pre><code>command1 | command2 | command3
+</code></pre>
+<p>Constructions like this are called <strong>pipelines</strong>.</p>
+<p>In practice, this can be used to process data through several programs. For example, here the output of <code>ls -l</code> is sent to the <code>grep</code> program, which  prints only files with a <code>.md</code> extension, and this output is finally sent to the <code>less</code> program:</p>
+<pre><code>ls -l | grep .md$ | less
+</code></pre>
+<p>The exit status of a pipeline is normally the exit status of the last command in the pipeline. The shell will not return a status until all the commands in the pipeline have completed. If you want your pipelines to be considered a failure if any of the commands in the pipeline fail, you should set the pipefail option with:</p>
+<pre><code>set -o pipefail
+</code></pre>
+<h2 id="lists-of-commands">Lists of commands</h2>
+<p>A <strong>list of commands</strong> is a sequence of one or more pipelines separated by <code>;</code>, <code>&amp;</code>, <code>&amp;&amp;</code> or <code>||</code> operator.</p>
+<p>If a command is terminated by the control operator <code>&amp;</code>, the shell executes the command asynchronously in a subshell. In other words, this command will be executed in the background.</p>
+<p>Commands separated by a <code>;</code> are executed sequentially: one after another. The shell waits for the finish of each command.</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment"># command2 will be executed after command1</span>
+command1 <span class="token punctuation">;</span> command2
+
+<span class="token comment"># which is the same as</span>
+command1
+command2
+</code></pre>
+<p>Lists separated by <code>&amp;&amp;</code> and <code>||</code> are called <em>AND</em> and <em>OR</em> lists, respectively.</p>
+<p>The <em>AND-list</em> looks like this:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment"># command2 will be executed if, and only if, command1 finishes successfully (returns 0 exit status)</span>
+command1 <span class="token operator">&amp;&amp;</span> command2
+</code></pre>
+<p>The <em>OR-list</em> has the form:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment"># command2 will be executed if, and only if, command1 finishes unsuccessfully (returns code of error)</span>
+command1 <span class="token operator">||</span> command2
+</code></pre>
+<p>The return code of an <em>AND</em> or <em>OR</em> list is the exit status of the last executed command.</p>
+<h1 id="conditional-statements">Conditional statements</h1>
+<p>Like in other languages, Bash conditionals let us decide to perform an action or not.  The result is determined by evaluating an expression, which should be enclosed in <code>[[ ]]</code>.</p>
+<p>Conditional expression may contain <code>&amp;&amp;</code> and <code>||</code> operators, which are <em>AND</em> and <em>OR</em> accordingly. Besides this, there many <a href="#primary-and-combining-expressions">other handy expressions</a>.</p>
+<p>There are two different conditional statements: <code>if</code> statement and <code>case</code> statement.</p>
+<h2 id="primary-and-combining-expressions">Primary and combining expressions</h2>
+<p>Expressions enclosed inside <code>[[ ]]</code> (or <code>[ ]</code> for <code>sh</code>) are called <strong>test commands</strong> or <strong>primaries</strong>. These expressions help us to indicate results of a conditional. In the tables below, we are using <code>[ ]</code>, because it works for <code>sh</code> too. Here is an answer about <a href="http://serverfault.com/a/52050">the difference between double and single square brackets in bash</a>.</p>
+<p><strong>Working with the file system:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Primary</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>[ -e FILE ]</code></td>
+<td align="left">True if <code>FILE</code> <strong>e</strong>xists.</td>
+</tr>
+<tr>
+<td align="center"><code>[ -f FILE ]</code></td>
+<td align="left">True if <code>FILE</code> exists and is a regular <strong>f</strong>ile.</td>
+</tr>
+<tr>
+<td align="center"><code>[ -d FILE ]</code></td>
+<td align="left">True if <code>FILE</code> exists and is a <strong>d</strong>irectory.</td>
+</tr>
+<tr>
+<td align="center"><code>[ -s FILE ]</code></td>
+<td align="left">True if <code>FILE</code> exists and not empty (<strong>s</strong>ize more than 0).</td>
+</tr>
+<tr>
+<td align="center"><code>[ -r FILE ]</code></td>
+<td align="left">True if <code>FILE</code> exists and is <strong>r</strong>eadable.</td>
+</tr>
+<tr>
+<td align="center"><code>[ -w FILE ]</code></td>
+<td align="left">True if <code>FILE</code> exists and is <strong>w</strong>ritable.</td>
+</tr>
+<tr>
+<td align="center"><code>[ -x FILE ]</code></td>
+<td align="left">True if <code>FILE</code> exists and is e<strong>x</strong>ecutable.</td>
+</tr>
+<tr>
+<td align="center"><code>[ -L FILE ]</code></td>
+<td align="left">True if <code>FILE</code> exists and is symbolic <strong>l</strong>ink.</td>
+</tr>
+<tr>
+<td align="center"><code>[ FILE1 -nt FILE2 ]</code></td>
+<td align="left">FILE1 is <strong>n</strong>ewer <strong>t</strong>han FILE2.</td>
+</tr>
+<tr>
+<td align="center"><code>[ FILE1 -ot FILE2 ]</code></td>
+<td align="left">FILE1 is <strong>o</strong>lder <strong>t</strong>han FILE2.</td>
+</tr>
+</tbody>
+</table><p><strong>Working with strings:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Primary</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>[ -z STR ]</code></td>
+<td align="left"><code>STR</code> is empty (the length is <strong>z</strong>ero).</td>
+</tr>
+<tr>
+<td align="center"><code>[ -n STR ]</code></td>
+<td align="left"><code>STR</code> is not empty (the length is <strong>n</strong>on-zero).</td>
+</tr>
+<tr>
+<td align="center"><code>[ STR1 == STR2 ]</code></td>
+<td align="left"><code>STR1</code> and <code>STR2</code> are equal.</td>
+</tr>
+<tr>
+<td align="center"><code>[ STR1 != STR2 ]</code></td>
+<td align="left"><code>STR1</code> and <code>STR2</code> are not equal.</td>
+</tr>
+</tbody>
+</table><p><strong>Arithmetic binary operators:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Primary</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>[ ARG1 -eq ARG2 ]</code></td>
+<td align="left"><code>ARG1</code> is <strong>eq</strong>ual to <code>ARG2</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>[ ARG1 -ne ARG2 ]</code></td>
+<td align="left"><code>ARG1</code> is <strong>n</strong>ot <strong>e</strong>qual to <code>ARG2</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>[ ARG1 -lt ARG2 ]</code></td>
+<td align="left"><code>ARG1</code> is <strong>l</strong>ess <strong>t</strong>han <code>ARG2</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>[ ARG1 -le ARG2 ]</code></td>
+<td align="left"><code>ARG1</code> is <strong>l</strong>ess than or <strong>e</strong>qual to <code>ARG2</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>[ ARG1 -gt ARG2 ]</code></td>
+<td align="left"><code>ARG1</code> is <strong>g</strong>reater <strong>t</strong>han <code>ARG2</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>[ ARG1 -ge ARG2 ]</code></td>
+<td align="left"><code>ARG1</code> is <strong>g</strong>reater than or <strong>e</strong>qual to <code>ARG2</code>.</td>
+</tr>
+</tbody>
+</table><p>Conditions may be combined using these <strong>combining expressions:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Operation</th>
+<th align="left">Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>[ ! EXPR ]</code></td>
+<td align="left">True if <code>EXPR</code> is false.</td>
+</tr>
+<tr>
+<td align="center"><code>[ (EXPR) ]</code></td>
+<td align="left">Returns the value of <code>EXPR</code>.</td>
+</tr>
+<tr>
+<td align="center"><code>[ EXPR1 -a EXPR2 ]</code></td>
+<td align="left">Logical <em>AND</em>. True if <code>EXPR1</code> <strong>a</strong>nd <code>EXPR2</code> are true.</td>
+</tr>
+<tr>
+<td align="center"><code>[ EXPR1 -o EXPR2 ]</code></td>
+<td align="left">Logical <em>OR</em>. True if <code>EXPR1</code> <strong>o</strong>r <code>EXPR2</code> are true.</td>
+</tr>
+</tbody>
+</table><p>Sure, there are more useful primaries and you can easily find them in the <a href="http://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html">Bash man pages</a>.</p>
+<h2 id="using-an-if-statement">Using an <code>if</code> statement</h2>
+<p><code>if</code> statements work the same as in other programming languages. If the expression within the braces is true, the code between <code>then</code> and <code>fi</code> is executed.  <code>fi</code> indicates the end of the conditionally executed code.</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment"># Single-line</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> 1 -eq 1 <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token keyword">echo</span> <span class="token string">"true"</span><span class="token punctuation">;</span> <span class="token keyword">fi</span>
+
+<span class="token comment"># Multi-line</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> 1 -eq 1 <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token keyword">echo</span> <span class="token string">"true"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<p>Likewise, we could use an <code>if..else</code> statement such as:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment"># Single-line</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> 2 -ne 1 <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token keyword">echo</span> <span class="token string">"true"</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">echo</span> <span class="token string">"false"</span><span class="token punctuation">;</span> <span class="token keyword">fi</span>
+
+<span class="token comment"># Multi-line</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> 2 -ne 1 <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token keyword">echo</span> <span class="token string">"true"</span>
+<span class="token keyword">else</span>
+  <span class="token keyword">echo</span> <span class="token string">"false"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<p>Sometimes <code>if..else</code> statements are not enough to do what we want to do. In this case we shouldn’t forget about the existence of <code>if..elif..else</code> statements, which always come in handy.</p>
+<p>Look at the example below:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable"><span class="token variable">`</span><span class="token function">uname</span><span class="token variable">`</span></span> <span class="token operator">==</span> <span class="token string">"Adam"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token keyword">echo</span> <span class="token string">"Do not eat an apple!"</span>
+<span class="token keyword">elif</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable"><span class="token variable">`</span><span class="token function">uname</span><span class="token variable">`</span></span> <span class="token operator">==</span> <span class="token string">"Eva"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token keyword">echo</span> <span class="token string">"Do not take an apple!"</span>
+<span class="token keyword">else</span>
+  <span class="token keyword">echo</span> <span class="token string">"Apples are delicious!"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<h2 id="using-a-case-statement">Using a <code>case</code> statement</h2>
+<p>If you are confronted with a couple of different possible actions to take, then using a <code>case</code> statement may be more useful than nested <code>if</code> statements. For more complex conditions use <code>case</code> like below:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">case</span> <span class="token string">"<span class="token variable">$extension</span>"</span> <span class="token keyword">in</span>
+  <span class="token string">"jpg"</span><span class="token operator">|</span><span class="token string">"jpeg"</span><span class="token punctuation">)</span>
+    <span class="token keyword">echo</span> <span class="token string">"It's image with jpeg extension."</span>
+  <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token string">"png"</span><span class="token punctuation">)</span>
+    <span class="token keyword">echo</span> <span class="token string">"It's image with png extension."</span>
+  <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token string">"gif"</span><span class="token punctuation">)</span>
+    <span class="token keyword">echo</span> <span class="token string">"Oh, it's a giphy!"</span>
+  <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  *<span class="token punctuation">)</span>
+    <span class="token keyword">echo</span> <span class="token string">"Woops! It's not image!"</span>
+  <span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac
+</code></pre>
+<p>Each case is an expression matching a pattern. The <code>|</code> sign is used for separating multiple patterns, and the <code>)</code> operator terminates a pattern list. The commands for the first match are executed. <code>*</code> is the pattern for anything else that doesn’t match the defined patterns. Each block of commands should be divided with the <code>;;</code> operator.</p>
+<h1 id="loops">Loops</h1>
+<p>Here we won’t be surprised. As in any programming language, a loop in bash is a block of code that iterates as long as the control conditional is true.</p>
+<p>There are four types of loops in Bash: <code>for</code>, <code>while</code>, <code>until</code> and <code>select</code>.</p>
+<h2 id="for-loop"><code>for</code> loop</h2>
+<p>The <code>for</code> is very similar to its sibling in C. It looks like this:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">for</span> arg <span class="token keyword">in</span> elem1 elem2 <span class="token punctuation">..</span>. elemN
+<span class="token keyword">do</span>
+  <span class="token comment"># statements</span>
+<span class="token keyword">done</span>
+</code></pre>
+<p>During each pass through the loop, <code>arg</code> takes on the value from <code>elem1</code> to <code>elemN</code>. Values may also be wildcards or <a href="#brace-expansion">brace expansions</a>.</p>
+<p>Also, we can write <code>for</code> loop in one line, but in this case there needs to be a semicolon before <code>do</code>, like below:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">{</span>1<span class="token punctuation">..</span>5<span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token keyword">echo</span> <span class="token variable">$i</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+</code></pre>
+<p>By the way, if <code>for..in..do</code> seems a little bit weird to you, you can also write <code>for</code> in C-like style such as:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">))</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token keyword">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+</code></pre>
+<p><code>for</code> is handy when we want to do the same operation over each file in a directory. For example, if we need to move all <code>.bash</code> files into the <code>script</code> folder and then give them execute permissions, our script would look like this:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">for</span> FILE <span class="token keyword">in</span> <span class="token variable">$HOME</span>/*.bash<span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token function">mv</span> <span class="token string">"<span class="token variable">$FILE</span>"</span> <span class="token string">"<span class="token variable">${HOME}</span>/scripts"</span>
+  <span class="token function">chmod</span> +x <span class="token string">"<span class="token variable">${HOME}</span>/scripts/<span class="token variable">${FILE}</span>"</span>
+<span class="token keyword">done</span>
+</code></pre>
+<h2 id="while-loop"><code>while</code> loop</h2>
+<p>The <code>while</code> loop tests a condition and loops over a sequence of commands so long as that condition is <em>true</em>. A condition is nothing more than a <a href="#primary-and-combining-expressions">primary</a> as used in <code>if..then</code> conditions. So a <code>while</code> loop looks like this:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">while</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> condition <span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+  <span class="token comment"># statements</span>
+<span class="token keyword">done</span>
+</code></pre>
+<p>Just like in the case of the <code>for</code> loop, if we want to write <code>do</code> and condition in the same line, then we must use a semicolon before <code>do</code>.</p>
+<p>A working example might look like this:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment"># Squares of numbers from 0 through 9</span>
+x<span class="token operator">=</span>0
+<span class="token keyword">while</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$x</span> -lt 10 <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token comment"># value of x is less than 10</span>
+  <span class="token keyword">echo</span> <span class="token variable"><span class="token variable">$((</span> x <span class="token operator">*</span> x <span class="token variable">))</span></span>
+  x<span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span> x <span class="token operator">+</span> <span class="token number">1</span> <span class="token variable">))</span></span> <span class="token comment"># increase x</span>
+<span class="token keyword">done</span>
+</code></pre>
+<h2 id="until-loop"><code>until</code> loop</h2>
+<p>The <code>until</code> loop is the exact opposite of the <code>while</code> loop. Like a <code>while</code> it checks a test condition, but it keeps looping as long as this condition is <em>false</em>:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">until</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> condition <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token comment">#statements</span>
+<span class="token keyword">done</span>
+</code></pre>
+<h2 id="select-loop"><code>select</code> loop</h2>
+<p>The <code>select</code> loop helps us to organize a user menu. It has almost the same syntax as the <code>for</code> loop:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">select</span> answer <span class="token keyword">in</span> elem1 elem2 <span class="token punctuation">..</span>. elemN
+<span class="token keyword">do</span>
+  <span class="token comment"># statements</span>
+<span class="token keyword">done</span>
+</code></pre>
+<p>The <code>select</code> prints all <code>elem1..elemN</code> on the screen with their sequence numbers, after that it prompts the user. Usually it looks like <code>$?</code> (<code>PS3</code> variable). The answer will be saved in <code>answer</code>. If <code>answer</code> is the number between <code>1..N</code>, then <code>statements</code> will execute and <code>select</code> will go to the next iteration — that’s because we should use the <code>break</code> statement.</p>
+<p>A working example might look like this:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+PS3<span class="token operator">=</span><span class="token string">"Choose the package manager: "</span>
+<span class="token keyword">select</span> ITEM <span class="token keyword">in</span> bower <span class="token function">npm</span> gem pip
+<span class="token keyword">do</span>
+  <span class="token keyword">echo</span> -n <span class="token string">"Enter the package name: "</span> <span class="token operator">&amp;&amp;</span> <span class="token function">read</span> PACKAGE
+  <span class="token keyword">case</span> <span class="token variable">$ITEM</span> <span class="token keyword">in</span>
+    bower<span class="token punctuation">)</span> bower <span class="token function">install</span> <span class="token variable">$PACKAGE</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    npm<span class="token punctuation">)</span>   <span class="token function">npm</span>   <span class="token function">install</span> <span class="token variable">$PACKAGE</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    gem<span class="token punctuation">)</span>   gem   <span class="token function">install</span> <span class="token variable">$PACKAGE</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+    pip<span class="token punctuation">)</span>   pip   <span class="token function">install</span> <span class="token variable">$PACKAGE</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  esac
+  <span class="token keyword">break</span> <span class="token comment"># avoid infinite loop</span>
+<span class="token keyword">done</span>
+</code></pre>
+<p>This example, asks the user what package manager {s,he} would like to use. Then, it will ask what package we want to install and finally proceed to install it.</p>
+<p>If we run this, we will get:</p>
+<pre><code>$ ./my_script
+1) bower
+2) npm
+3) gem
+4) pip
+Choose the package manager: 2
+Enter the package name: bash-handbook
+&lt;installing bash-handbook&gt;
+</code></pre>
+<h2 id="loop-control">Loop control</h2>
+<p>There are situations when we need to stop a loop before its normal ending or step over an iteration. In these cases, we can use the shell built-in <code>break</code> and <code>continue</code> statements. Both of these work with every kind of loop.</p>
+<p>The <code>break</code> statement is used to exit the current loop before its ending. We have already met with it.</p>
+<p>The <code>continue</code> statement steps over one iteration. We can use it as such:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">))</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable"><span class="token variable">$((</span> i <span class="token operator">%</span> <span class="token number">2</span> <span class="token variable">))</span></span> -eq 0 <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token keyword">continue</span><span class="token punctuation">;</span> <span class="token keyword">fi</span>
+  <span class="token keyword">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+</code></pre>
+<p>If we run the example above, it will print all odd numbers from 0 through 9.</p>
+<h1 id="functions">Functions</h1>
+<p>In scripts we have the ability to define and call functions. As in any programming language, functions in bash are chunks of code, but there are differences.</p>
+<p>In bash, functions are a sequence of commands grouped under a single name, that is the <em>name</em> of the function. Calling a function is the same as calling any other program, you just write the name and the function will be <em>invoked</em>.</p>
+<p>We can declare our own function this way:</p>
+<pre class=" language-bash"><code class="prism  language-bash">my_func <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment"># statements</span>
+<span class="token punctuation">}</span>
+
+my_func <span class="token comment"># call my_func</span>
+</code></pre>
+<p>We must declare functions before we can invoke them.</p>
+<p>Functions can take on arguments and return a result — exit code. Arguments, within functions, are treated in the same manner as arguments given to the script in <a href="#non-interactive-mode">non-interactive</a> mode — using <a href="#positional-parameters">positional parameters</a>. A result code can be <em>returned</em> using the <code>return</code> command.</p>
+<p>Below is a function that takes a name and returns <code>0</code>, indicating successful execution.</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token comment"># function with params</span>
+greeting <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -n <span class="token variable">$1</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"Hello, <span class="token variable">$1!</span>"</span>
+  <span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token string">"Hello, unknown!"</span>
+  <span class="token keyword">fi</span>
+  <span class="token keyword">return</span> 0
+<span class="token punctuation">}</span>
+
+greeting Denys  <span class="token comment"># Hello, Denys!</span>
+greeting        <span class="token comment"># Hello, unknown!</span>
+</code></pre>
+<p>We already discussed <a href="#exit-codes">exit codes</a>. The <code>return</code> command without any arguments returns the exit code of the last executed command. Above, <code>return 0</code> will return a successful exit code. <code>0</code>.</p>
+<h2 id="debugging">Debugging</h2>
+<p>The shell gives us tools for debugging scripts. If we want to run a script in debug mode, we use a special option in our script’s shebang:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token shebang important">#!/bin/bash</span> options
+</code></pre>
+<p>These options are settings that change shell behavior. The following table is a list of options which might be useful to you:</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Short</th>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-f</code></td>
+<td align="left">noglob</td>
+<td align="left">Disable filename expansion (globbing).</td>
+</tr>
+<tr>
+<td align="center"><code>-i</code></td>
+<td align="left">interactive</td>
+<td align="left">Script runs in <em>interactive</em> mode.</td>
+</tr>
+<tr>
+<td align="center"><code>-n</code></td>
+<td align="left">noexec</td>
+<td align="left">Read commands, but don’t execute them (syntax check).</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="left">pipefail</td>
+<td align="left">Make pipelines fail if any commands fail, not just if the final command fail.</td>
+</tr>
+<tr>
+<td align="center"><code>-t</code></td>
+<td align="left">—</td>
+<td align="left">Exit after first command.</td>
+</tr>
+<tr>
+<td align="center"><code>-v</code></td>
+<td align="left">verbose</td>
+<td align="left">Print each command to <code>stderr</code> before executing it.</td>
+</tr>
+<tr>
+<td align="center"><code>-x</code></td>
+<td align="left">xtrace</td>
+<td align="left">Print each command and its expanded arguments to <code>stderr</code> before executing it.</td>
+</tr>
+</tbody>
+</table><p>For example, we have script with <code>-x</code> option such as:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token shebang important">#!/bin/bash</span> -x
+
+<span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">))</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token keyword">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+</code></pre>
+<p>This will print the value of the variables to <code>stdout</code> along with other useful information:</p>
+<pre><code>$ ./my_script
++ (( i = 0 ))
++ (( i &lt; 3 ))
++ echo 0
+0
++ (( i++  ))
++ (( i &lt; 3 ))
++ echo 1
+1
++ (( i++  ))
++ (( i &lt; 3 ))
++ echo 2
+2
++ (( i++  ))
++ (( i &lt; 3 ))
+</code></pre>
+<p>Sometimes we need to debug a part of a script. In this case using the <code>set</code> command is convenient. This command can enable and disable options. Options are turned on using <code>-</code> and turned off using <code>+</code>:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">echo</span> <span class="token string">"xtrace is turned off"</span>
+<span class="token keyword">set</span> -x
+<span class="token keyword">echo</span> <span class="token string">"xtrace is enabled"</span>
+<span class="token keyword">set</span> +x
+<span class="token keyword">echo</span> <span class="token string">"xtrace is turned off again"</span>
+</code></pre>
+<h1 id="afterword">Afterword</h1>
+<p>I hope this small handbook was interesting and helpful. To be honest, I wrote this handbook for myself so as to not forget the bash basics. I tried to write concisely but meaningfully, and I hope you will appreciate that.</p>
+<p>This handbook narrates my own experience with Bash. It does not purport to be comprehensive, so if you still want more, please run <code>man bash</code> and start there.</p>
+<p>Contributions are absolutely welcome and I will be grateful for any corrections or questions you can send my way. For all of that create a new <a href="https://github.com/denysdovhan/bash-handbook/issues">issue</a>.</p>
+<p>Thanks for reading this handbook!</p>
+<h1 id="want-to-learn-more">Want to learn more?</h1>
+<p>Here’s a list of other literature covering Bash:</p>
+<ul>
+<li>Bash man page.  In many environments that you can run Bash, the help system <code>man</code> can display information about Bash, by running the command <code>man bash</code>.  For more information on the <code>man</code> command, see the web page <a href="http://www.linfo.org/man.html">“The man Command”</a> hosted at <a href="http://www.linfo.org/">The Linux Information Project</a>.</li>
+<li><a href="https://www.gnu.org/software/bash/manual/">“Bourne-Again SHell manual”</a> in many formats, including HTML, Info, TeX, PDF, and Texinfo.  Hosted at <a href="https://www.gnu.org/">https://www.gnu.org/</a>.  As of 2016/01, this covers version 4.3, last updated 2015/02/02.</li>
+</ul>
+<h1 id="other-resources">Other resources</h1>
+<ul>
+<li><a href="https://github.com/awesome-lists/awesome-bash">awesome-bash</a> is a curated list of Bash scripts and resources</li>
+<li><a href="https://github.com/alebcay/awesome-shell">awesome-shell</a> is another curated list of shell resources</li>
+<li><a href="https://github.com/Bash-it/bash-it">bash-it</a> provides a solid framework for using, developing and maintaining shell scripts and custom commands for your daily work.</li>
+<li><a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/">Bash Guide for Beginners</a> a good resource between the <a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html">HOWTO</a> and the <a href="http://tldp.org/LDP/abs/html/">Bash Scripting</a> guide.</li>
+<li><a href="http://dotfiles.github.io/">dotfiles.github.io</a> is a good source of pointers to the various dotfiles collections and shell frameworks available for bash and other shells.</li>
+<li><a href="https://github.com/denysdovhan/learnyoubash">learnyoubash</a> helps you write your first bash script</li>
+<li><a href="https://github.com/koalaman/shellcheck">shellcheck</a> is a static analysis tool for shell scripts. You can either use it from a web page at <a href="http://www.shellcheck.net/">www.shellcheck.net</a> or run it from the command line. Installation instructions are on the <a href="https://github.com/koalaman/shellcheck">koalaman/shellcheck</a> github repository page.</li>
+</ul>
+<p>Finally, Stack Overflow has many questions that are <a href="https://stackoverflow.com/questions/tagged/bash">tagged as bash</a> that you can learn from and is a good place to ask if you’re stuck.</p>
+<h1 id="license">License</h1>
+<p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg?style=flat-square" alt="CC 4.0"></a></p>
+<p>© <a href="http://denysdovhan.com">Denys Dovhan</a></p>
+
+    </div>
+  </div>
+</body>
+
+</html>
