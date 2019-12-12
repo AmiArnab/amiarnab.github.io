@@ -15,7 +15,7 @@
 <strong>Department of Computer Science and Engineering</strong><br>
 <strong>Indian Institute of Technology Kharagpur</strong></p>
 <h3 id="section"></h3>
-<p><a href="mailto:amiarnabbolchi"><img src="http://files.softicons.com/download/application-icons/free-flat-icons-by-grafikartes/png/32x32/mail.png" alt="Mail me"></a>   <a href="https://github.com/AmiArnab"><img src="https://www.shareicon.net/data/128x128/2015/06/30/62149_git_32x32.png" alt="Git"></a>  <a><img src="http://icons.iconarchive.com/icons/dakirby309/simply-styled/32/Skype-icon.png" alt="Skype"></a><br>
+<p><a href="mailto:amiarnabbolchi"><img src="http://icons.iconarchive.com/icons/dtafalonso/android-l/32/Gmail-icon.png" alt="Mail me"></a>   <a href="https://github.com/AmiArnab"><img src="https://www.shareicon.net/data/128x128/2015/06/30/62149_git_32x32.png" alt="Git"></a>  <a><img src="http://icons.iconarchive.com/icons/dakirby309/simply-styled/32/Skype-icon.png" alt="Skype"></a><br>
 <a href="https://www.linkedin.com/in/amiarnabbolchi"><img src="http://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png" alt="LinkedIn"></a> <a href="https://www.facebook.com/amiarnabbolchi"><img src="http://icons.iconarchive.com/icons/danleech/simple/32/facebook-icon.png" alt="Facebook"></a></p>
 <h2 id="interesting-papers">Interesting Papers</h2>
 <ul>
@@ -26,6 +26,13 @@
 <li><a href="https://link.springer.com/chapter/10.1007/978-3-642-40041-4_20">Highly-Scalable Searchable Symmetric Encryption with Support for<br>
 Boolean Queries</a></li>
 <li><a href="https://aapt.scitation.org/doi/abs/10.1119/1.1522741">From Cbits to Qbits: Teaching computer scientists quantum mechanics</a></li>
+<li><a href="https://arxiv.org/abs/1110.5353">Quantum Copy-Protection and Quantum Money</a></li>
+<li><a href="https://arxiv.org/abs/1203.4740">Quantum Money from Hidden Subspaces</a></li>
+</ul>
+<h2 id="knowledge">Knowledge!</h2>
+<ul>
+<li><a href="https://people.cs.umass.edu/~strubell/doc/quantum_tutorial.pdf">An Introduction to Quantum Algorithms</a></li>
+<li><a href="https://www.springer.com/gp/book/9780817641276">An Introduction to Quantum Computing Algorithms</a></li>
 </ul>
 <h2 id="books-to-read">Books to Read</h2>
 <ul>
@@ -34,6 +41,8 @@ Boolean Queries</a></li>
 <li><a href="https://dl.acm.org/citation.cfm?id=1973124">Quantum computing: A gentle introduction</a></li>
 <li><a href="https://www.goodreads.com/book/show/23463183-the-billion-dollar-spy">The Billion Dollar Spy: A True Story of Cold War Espionage and Betrayal</a></li>
 <li><a href="https://www.goodreads.com/book/show/767171.The_Rise_and_Fall_of_the_Third_Reich">The Rise and Fall of the Third Reich: A History of Nazi Germany</a></li>
+<li><a href="https://www.goodreads.com/book/show/29630849-mossad">Mossad</a></li>
+<li><a href="https://www.goodreads.com/book/show/13530973-antifragile">Antifragile: Things That Gain from Disorder</a></li>
 </ul>
 <h2 id="interesting-links">Interesting Links</h2>
 <ul>
@@ -90,6 +99,61 @@ Boolean Queries</a></li>
 </ul>
 <pre class=" language-bash"><code class="prism  language-bash">ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 -f x11grab -framerate 100 -video_size 1600x900 -i :0.0 -filter_complex <span class="token string">"[0:v]pad=iw:900:0:(oh-ih)/2[left];[left][1:v]hstack"</span> output_scrcam.mp4
 </code></pre>
+<ul>
+<li>Record terminal</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash">showterm <span class="token operator">&lt;</span>executable_name<span class="token operator">&gt;</span>
+</code></pre>
+<ul>
+<li>Create and update symbolic links in Linux</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">ln</span> -s /path/to/file /path/to/symlink <span class="token comment">#Create</span>
+<span class="token function">ln</span> -sf /path/to/file /path/to/symlink <span class="token comment">#Update</span>
+</code></pre>
+<ul>
+<li>Extract pages from PDF files</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash">qpdf --pages <span class="token operator">&lt;</span>input_file<span class="token operator">&gt;</span>.pdf <span class="token operator">&lt;</span>page_number_start - page_number_stop<span class="token operator">&gt;</span> -- <span class="token operator">&lt;</span>input_file<span class="token operator">&gt;</span>.pdf <span class="token operator">&lt;</span>output_file<span class="token operator">&gt;</span>.pdf
+</code></pre>
+<ul>
+<li>Crop a PDF</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash">pdfcrop --margins <span class="token string">'-&lt;left&gt; -&lt;top&gt; -&lt;right&gt; -&lt;bottom&gt;'</span> <span class="token operator">&lt;</span>input_file<span class="token operator">&gt;</span>.pdf <span class="token operator">&lt;</span>output_file<span class="token operator">&gt;</span>.pdf
+</code></pre>
+<ul>
+<li>Count Number of Lines in File</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">wc</span> -l <span class="token operator">&lt;</span>file_name<span class="token operator">&gt;</span>
+</code></pre>
+<center>
+<span>The table below is for testing!</span>
+</center>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 1 is</td>
+<td align="center">left-aligned</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td>col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1</td>
+</tr>
+</tbody>
+</table>
 </div>
 </body>
 
