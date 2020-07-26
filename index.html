@@ -17,6 +17,18 @@
 <h3 id="section"></h3>
 <p><a href="mailto:amiarnabbolchi"><img src="http://icons.iconarchive.com/icons/dtafalonso/android-l/32/Gmail-icon.png" alt="Mail me"></a>   <a href="https://github.com/AmiArnab"><img src="https://www.shareicon.net/data/128x128/2015/06/30/62149_git_32x32.png" alt="Git"></a>  <a><img src="http://icons.iconarchive.com/icons/dakirby309/simply-styled/32/Skype-icon.png" alt="Skype"></a><br>
 <a href="https://www.linkedin.com/in/amiarnabbolchi"><img src="http://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png" alt="LinkedIn"></a> <a href="https://www.facebook.com/amiarnabbolchi"><img src="http://icons.iconarchive.com/icons/danleech/simple/32/facebook-icon.png" alt="Facebook"></a></p>
+<h2 id="my-publications">My Publications</h2>
+<p><img src="https://img.shields.io/badge/Conference-ACM_CCS18-green" alt=""><br>
+Hardware Acceleration of Searchable Encryption<br>
+<img src="https://img.shields.io/badge/Conference-ACM/IEEE_DAC18_Poster-green" alt=""><br>
+Cryptographically Secure Multi-tenant Provisioning of FPGAs<br>
+<img src="https://img.shields.io/badge/Conference-IACR_EUROCRYPT20-green" alt=""><br>
+Fault Template Attacks on Block Ciphers Exploiting Fault Propagation<br>
+<img src="https://img.shields.io/badge/Journal-ACM_JETC-green" alt=""><br>
+Neural Network based Inherently Fault-Tolerant Cryptographic Primitives without Explicit Redundancy Checks</p>
+<h2 id="book-chapter">Book Chapter</h2>
+<p><img src="https://img.shields.io/badge/Book_Chapter-Springer-blue" alt=""><br>
+Fault-tolerant implementations of physically unclonable functions on FPGA</p>
 <h2 id="interesting-papers">Interesting Papers</h2>
 <ul>
 <li><a href="https://arxiv.org/pdf/1609.09047.pdf">Quantum Tokens for Digital Signatures</a></li>
@@ -124,6 +136,20 @@ Boolean Queries</a></li>
 <li>Count Number of Lines in File</li>
 </ul>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">wc</span> -l <span class="token operator">&lt;</span>file_name<span class="token operator">&gt;</span>
+</code></pre>
+<ul>
+<li>Remove steiner cells/nets in Cadence Virtuoso</li>
+</ul>
+<pre class=" language-c"><code class="prism  language-c">cv<span class="token operator">=</span><span class="token function">geGetEditCellView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">foreach</span><span class="token punctuation">(</span> item cv<span class="token operator">~</span><span class="token operator">&gt;</span>steiners 
+   <span class="token function">dbDeleteObject</span><span class="token punctuation">(</span> item <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>Number of Instructions Executed</li>
+</ul>
+<pre class=" language-bash"><code class="prism  language-bash">valgrind --tool<span class="token operator">=</span>callgrind --dump-instr<span class="token operator">=</span>yes ./<span class="token operator">&lt;</span>program_name<span class="token operator">&gt;</span>
+<span class="token comment">#Use kcachegrind tool to view the results</span>
 </code></pre>
 <center>
 <span>The table below is for testing!</span>
